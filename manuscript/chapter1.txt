@@ -1,0 +1,81 @@
+# Installing Drupal 8
+Before we start can start working, we need a working Drupal 8 instance. You may skip this if you're already familiar with the process of setting up a Drupal site. You can use a local installation using MAMP (Mac OS X) or XAMPP (Windows). You can get hosting for a few dollars a month if you prefer. For additional information on this [visit the Installation Guide on Drupal.org](https://drupal.org/documentation/install). 
+
+## Minimum Requirements
+The very first thing you need to get Drupal 8 running is the right environment. This includes the software that Drupal needs in order to operate correctly. Drupal 8 has different requirements from 6 and 7, so it is important to be familiar with them in order to minimize problems. 
+
+The minimum requirements for Drupal 8 are:  
+
+- Web Server Running Apache, Nginx, or Microsoft IIS
+- PHP 5.3.10 or higher
+- MySQL 5.0.15 or higher with PDO, PostgreSQL 8.3 or higher with PDO, SQLite 3.3.7 or higher
+
+## Downloading Drupal
+To download Drupal go to the [Drupal project page](https://drupal.org/project/drupal) and download the latest stable version of Drupal 8. You can use your favorite download utility for that. If you are logged in to your server you can use _wget_ or _curl_, and extract the file onto your website's folder, which is generally ```/var/www``` on most Apache servers, for example. You can also download through the browser, then upload it to your server using an **FTP/SFTP** program of your choosing.
+
+## Setting up a Database
+Before installing, you must create a database and a database user, then assign the database user rights to use the database). _Note: Drupal 8 is able to create a database itself if the user has enough privileges, so you may skip creating the database if this is the case._  
+  
+If you're using shared hosting, most providers will provide you with a browser based option usually called phpMyAdmin. If you go into the Control Panel of your hosting account and access phpMyAdmin, you'll be able to create a database and add a user to it which you can use.
+
+If you're using something like MAMP, the software GUI usually has a button that will launch phpMyAdmin for you, which then allows you to create the database and user.
+
+The more advanced way of doing this is if you have root access to a server and you need to do it from the command line. Here's what the [Drupal.org Install Page](https://www.drupal.org/documentation/install/create-database#mysql_commands) instructs us to do:
+
+*For information on installing and configuring MySQL see http://dev.mysql.com/doc/refman/5.7/en/index.html*
+
+In the following examples, '**username**' is an example MySQL user who will have the **CREATE** and **GRANT** privileges and '**databasename**' is the name of the new database Use the appropriate names for your system.
+  
+Create a new database for your site (change the username and databasename):  
+  
+`mysql -u username -p -e "CREATE DATABASE databasename CHARACTER SET utf8 COLLATE utf8_general_ci;"`
+
+MySQL prompts for the '**username**' database password, and creates the initial database files.
+
+Log in and set the access database rights:  
+  
+`mysql -u username -p`
+
+MySQL prompts for the '**username**' database **password**.
+
+At the MySQL prompt, set the permissions using the following command:  
+  
+`GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES ON databasename.* TO 'username'@'localhost' IDENTIFIED BY 'password'; 
+`  
+  
+In this case:
+
+'**databasename**' is the name of your database  
+'**username**' is the username of your MySQL user account  
+'**localhost**' is the host where Drupal is installed  
+'**password**' is the password required for that username  
+Be sure to use backticks ( ` ) around the database name if you used a MySQL escape character (_ or %) in your database name.  
+  
+For example, because the underscore character is a wildcard, drupal_test_account.* should be `drupal\_test\_account`.* for security. Otherwise the underscores would match any character and could accidentally give access to other similarly named databases.
+
+**Note**: Unless the database user/host combination for your Drupal installation has all of the privileges listed above (except possibly CREATE TEMPORARY TABLES, which is currently only used by Drupal core automated tests and some contributed modules), you will not be able to install or run Drupal.
+
+For further information on the GRANT statement see http://dev.mysql.com/doc/refman/5.0/en/grant.html
+
+If successful, MySQL will reply with:  
+`Query OK, 0 rows affected`
+
+Now exit the MYSQL prompt by typing:  
+`exit`  
+The server will answer by saying  
+`Bye`  
+
+And you're done, you can use your credentials on the installation page.
+
+## Creating a settings.php file
+In your Drupal 8 files, browse to ```sites/default/files``` and copy ```default.settings.php``` and rename it to ```settings.php```, copy ```default.services.yaml``` and rename it to services.yam, then  create a ```files``` directory and give both files and the directory full read, write, and execute permissions as follows:  
+  
+```chmod 777 settings.php```  
+```chmod 777 files/```  
+
+If you're using an FTP program, the way to do this might be differ, you might have to right click and find a way to modify a file's attributes.
+  
+## Running The Installation Script
+Visit the url for your Drupal 8 instance on your browser, you will be taken through the installation process where you will enter your database information and respective site information. After this is complete, your Drupal 8 website will be ready for use.
+
+Once you're done, set the permissions of settings.php and service.yaml to 644 as Drupal is done making modifications to them, so we should lock those files down.
