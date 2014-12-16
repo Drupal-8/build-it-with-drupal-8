@@ -1,0 +1,106 @@
+# Creating a Business Brochure site.
+
+The brochure site is easily the most common type of website built, it is a collection of informational pages that usually have information about a business or a person's services, as well as a contact page at the end with a form and some information.
+
+Once Drupal 8 is set up, we'll be able to get started right away. The first thing we want to do is to navigate to our fresh installation of Drupal 8.
+
+## Overview
+
+We're going to create an imaginary business owned by Amy, which we will use throughout the remainder of this book to build the projects, in this case we're going to build Amy's Cake Store's brochure website. The goal of this website is to show people more information about the business, then hopefully get them to call or e-mail Amy to request information about her product.
+
+Since this is the first tutorial, we'll make it the easiest. We're  going to make a few pages, create a contact form and make sure that everything looks good. For resources and help on how to change the look of your site, see the Resources chapter.
+
+## What you need for this project
+
+* Fresh Drupal 8 Install
+* [Captcha Module](https://drupal.org/captcha)
+
+## Getting Started
+
+The first thing we want to do is set up the front page to our new website. Let's create this page by clicking on Content on the Toolbar above your site, then clicking Add Content. The type of content we can to create is "Basic Page". 
+
+Before we continue, let's familiarize ourselves with the content addition page. Let's have a look:
+  
+![Page node creation form](images/node-add-page-form.png)
+  
+The page we'll be creating is pretty straight forward page, You give it a title, put your content in, give it a URL, put it on a menu, then save, voila!. Let's dig a little deeper.
+
+Let's call this page "Welcome", type that into the Title field. In this page we're going to include information that introduces our visitors to our business in the Body field. Generally, this is overview level information with what is referred to as a **call to action**. In our case we're going to add "Order online and save 10%".
+
+Next, we'll click on **URL Path Settings**, here can set the URL for this specific page, we'll do _home_ one this one. This means that we'll be able to access this page at example.com/home.
+
+Go ahead and save your work. In the end it should look something like this.
+
+![Our newly created page](images/brochure-home-page.png)
+
+Our new homepage is set up, but it isn't set to be the front page of our site, so when somebody browses to our website directly (amyscakestore.com, for example) they will not see what we just created first, we're going to fix that. On the admin menu up top, on the very top left, there's a manage button, click it and then you'll see a configure button like this:
+
+![Configure button](images/brochure-configure-menu.png)
+
+On the right you will see this link, click into it.
+
+![Site Information](images/brochure-site-information.png)
+
+In this page, we're going to switch the front page url to our newly created *home* URL, as such:
+
+![](images/brochure-frontpage-url.png)
+
+In the future, if you ever want to set your front page to another page, if you have a promotion for example, you can come back to this page and set it to that, Drupal will seamlessly point any visitors that go to your page to it, once the promotion is done, you can set it back to your other page, it's really quite convenient.  
+
+Bearing in mind that we're just using the theme that Drupal 8 comes with by default, and that we're not focusing so much on graphic design, it's worth noting that there are plenty of resources and people willing to help you with the design aspects of your site, be it creating banners, a whole theme, and so on. Our goal in this book is to help you navigate many of the content creations that Drupal 8 offers, to give you an idea of the power that it comes with out of the box, and to point you in the right direction for you to create a website that will promote your idea successfully, now onto the next section.
+
+## Creating a products page
+
+Let's create a products page, here we will display our best cakes to give our visitors an idea of what they can order. For this section we're going to venture into creating a new content type, and setting up a view, it's going to be fun, so let's get started!
+
+## New Content Type: Product
+
+Right now we only have the *Basic Page* and the *Article* content types, our new *Product* type doesn't exist and we're going to create it. The reason we create a new content type is because it needs to have some extra information, in this case we will refer to them as fields. A Field in drupal is a small piece of content that can be collected and be added to your content, some examples are addresses, names, images, dates, etc. In our Product node we're going to add an image so we can display a nice picture of a cake for each item. Other tentative fields are price, ingredients, ordering information, and so on.
+
+## Creating the Product Content Type
+
+On the admin tool bar, head over to Manage and click on Structure, on the following page we will select *Content Types*. 
+
+![Content Type Management Page](images/brochure-content-types-page.png)
+
+We're going to select *Add Content Type*, this will bring us to the Content Type creation Page. There's a few things to familiarize ourselves with. The first field is the *Name* fields, we're going to enter Product into that field, you can enter a description under it giving a little information about the type of product we're entering here, in this case it's pretty self explanatory here, but with enough content types and people working together, it can be very helpful.
+
+There's a few tabs under the previous section, the first one being *Submission form settings*, here we're going to change the Title field label to *Product Name*, the rest we can skip and go down to *Display Settings* and uncheck **Display author and date information**, this is important for a blog post, but not on this one. Next up we have *Menu Information*, we want to uncheck all available menus, as this will only show up on our Products view, and not on any menus.
+
+Go ahead and save your work.
+
+## Adding fields
+
+After you've saved your work, you're gonna land on the Manage Fields page, this is where we're gonna be able to add all that extra information for the product, and honestly where Drupal starts to shine as a content publishing platform. In this situation, we're only going to add an Image upload field so we can show people what our company has to offer.
+
+To save us some time, I'll show you how the form is supposed to look when you add the field.
+
+![Make sure you set the field type to image](images/brochure-manage-fields-image.png)
+
+Go ahead and click Save. We're going to also click save on the next page and leave it as is, which means we'll want to upload just one image per product.
+
+On the next page, we want to make the field required, that way we can ensure that even if we delegate the task of adding the products to someone else, that the content will be consistent and complete. The rest of the options are pretty self-explanatory, but we don't need to worry about them right now, go ahead and click save.
+
+## Adding our first product
+
+Our content type is ready, let's go ahead and create our first one. The process is identical to creating a page, so head over to Shortcuts on the admin menu > Add Content > Product. Voila! Just like when we created our page, we're going to create a Product. I added some dummy text, a picture of a beautiful cake and saved the page. Your page should look something like this as well.
+
+![Our first Product page](images/brochure-cake-node.png)
+
+It's not the most charming in the layout in the world right now, but not to worry, Drupal offers a handful of really easy and powerful ways to change this, and we'll visit some of them throughout this book, right now we want to focus on creating a view to display our product.
+
+## Jumping into Views
+
+Views is possibly the most versatile and useful aspect of Drupal. You can create just about any listing of your content you can think of. If you want to make a blog, you can easily create it with views by displaying your Blog content and sorting it by creation date, you can also make a block displaying the 5 most recent blog posts throughout your site. In our scenario, we're going to create a listing of our cake products, sorted alphabetically.
+
+To get started, go to the admin menu and click on Manage > Structure, and on the following page, click Views. On this page, you can probably get a better idea of the type of things you can display with views by looking at some the ones that Drupal 8 comes with by default. We're going to create a new one by clicking Add new view, let's analyze this page a little bit. 
+
+![Our products view](images/brochure-add-new-view.png)
+
+First we have Views basic information, this information is solely administrative, which means this name will be displayed in the list of views we saw previously. It's good to keep our names explicit and easy to identify for future reference.
+
+Next up, we have View settings. This page gives is a pretty good head start, as we can specify the type of content we want to display, and how we want to sort it. We want to show product content here.
+
+Page settings allows us to specify the address of the page, how many items we want to display, and how we want to display them when the page is loaded. Feel free to follow along with what I've specified in the image above. 
+
+Let's go ahead and save and edit this view.

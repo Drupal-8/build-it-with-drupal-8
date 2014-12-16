@@ -1,0 +1,108 @@
+# Creating a Blog
+Now that you know how to create a new content type, let's go ahead and start a blog, and for that we need blog posts. As a first step, a new content type has to be created. The steps to create a new content type and fields are discussed in the previous chapter. You can name the content type *Blog Post* and add a field called *Tags*. The tags are usually keywords which are usually associated with a web link which leads to an index page which lists all the blogs associated with the tags.  
+  
+On the admin toolbar at the top, go to Manage and select Content. Then on the following page, select Add Content.  
+  
+![add content](images/add_content.jpg "Add Content")  
+  
+This brings us to the Add Content page, which enables us to add a variety of content such as an article, blog, or a basic page with some static content.  
+![add content page](images/add_content_page.jpg "Add Content Page")  
+  
+In order to create a blog post, select the Blog Post option. This takes us to the Create Blog Post page.  
+
+![create blog post](images/create_blog_post.jpg "Create Blog Post")  
+  
+This is a pretty straight forward page, where you are going to provide a title for your blog, write the content of the blog and then publish it.  
+  
+So let us call this blog post *"My first blog"*. Enter the name of the blog in the Title field and the content of the blog goes into the Body field. Now your blog is ready and is just a click away from being published. All you have to do is click the Save and Publish button, and your blog should appear in the homepage like this.  
+  
+![blog homepage](images/blog_homepage.jpg "Blog Homepage")  
+  
+Now a blog wouldn't be complete without a comments section, everybody likes to be able to contribute to the discussion, thankfully that is very easy to do with Drupal.  
+  
+## Adding a Comments Field
+Go over to Manage and select Structure. From this page, select Content Types and this should display the page with the list of available content types.  
+  
+![add content type](images/add_content_type.jpg "Add Content Type")  
+  
+Since we are going to add a comment field to the Blog Post content type, you can click the corresponding *Manage fields* dropdown list and select the Edit option.  
+  
+![manage fields](images/manage_fields.jpg "Manage Fields")  
+  
+The *Edit* option allows you to add additional fields or make any modifications to the existing ones. So to add the additional “Comment” field we are going to edit the content type and it should look something like this.  
+  
+![blog post content type](images/blog_post_content_type.jpg "Blog Post Content Type")  
+  
+Go to the Manage fields tab and this is where all the existing fields available in the content type are listed.  
+  
+![Manage Fields Content Type](images/manage_fields_content_type.jpg "manage fields content type")  
+  
+Now enter the name of the field that we are going to add, which is *Comment* in the Add new field and select a corresponding field type, which typically should be *Comments*. Once done, you can save the changes. This takes you to the *Comment* field settings page.  
+  
+![Comment Field Settings](images/comment_field_settings.jpg "comment field settings ")  
+  
+## Applying Restrictions to the Comment Field
+Now that the comment field is added to your blog post, but you want to apply certain restrictions on the way the comments are being posted. These settings can be made by going to the Edit tab and the page should look similar to this.  
+  
+![Blog Restrictions](images/blog_restrictions.jpg "blog restrictions")  
+  
+Here you can restrict the way the comments are displayed on the page. You can prevent the users from commenting on the blog or you can hide the comment altogether. You can also set the limit for the number of comments to be displayed per page, and also alter the way the comments are displayed, such as displaying replies, and threading options. Once the required settings are made, you can save the settings for it take effect and the page with the comment section should look like this.  
+  
+![Blog Restrictions Homepage](images/blog_restrictions_homepage.jpg "blog restrictions homepage")  
+  
+## Bringing it all together with Views  
+Hopefully you're starting to get into the groove of things. Creating your content, setting up it's individual attribute, then using views to choose how you're going to display groupings of this content. Let's get started.  
+  
+Go over to Manage and select Structure. From this page, select Views and this should display the page with the list of available Views.  
+  
+![view page](images/view_page.jpg "View Page")  
+  
+Now select the *Add new view* button and this should take you to the Add new view page, which looks like this.  
+  
+![add view](images/add_view.jpg "Add View")  
+  
+Here you can define a new view name and also define the basic, page and block settings for the views. Let us look each section in detail, which helps understand the hows works a bit better. Let's first concentrate on the *View Settings* section.  
+  
+The View Settings section provides basic settings for the views. Here you can select the item (e.g., Content) that you want to display in the view from the *Show* dropdown list. The next is selecting the type of content. You can select the content type (e.g., Blog Posts) from the *type of* dropdown list. The next thing would be to group your contents based on keywords. These keywords can be entered (e.g., php, mysql) in the *tagged with* field. Next would be to sort the content and you can do this by selecting option (e.g., Newest first) from the *Sorted by* dropdown list. Now your basic settings are done.  
+  
+Next, let's take a look at what Page settings are and why we need them. Creating a Page view lets you create a section that can be accessed through a URL. This URL can be linked directly and the view appears in the main content area. Now, select the *Create a page* checkbox. This opens up a section like this.  
+  
+![create a page view](images/add_new_view.jpg "Create a Page View")  
+  
+The first thing that you would do is to enter a name for the Path. By default, the Page title field and the Path field are populated based on the name entered in the View name field. For example, if we provide the view name as *Blog List*, then by default the Page title appears as *Blog List* and the Path appears as *blog-list*. This is the URL that will be used to access the View. Next is defining the pagination. You can set the number of items to be displayed in single page (e.g., 10) by entering the value from the *Items to display* field.  
+  
+If you want to allow users to view more than one page of items, select the *Use a Pager* option. If this option is not selected, users will only be able to view the number of items that you specify in the *Items to Display* field. Accessing the views from the menu is always helpful. To make the view available from a menu, select the *Create a Menu Link* option. Once you select this option, you can now choose the menu and a link text for it from the *Menu* and the *Link text* field. If you wish to provide the view as an RSS feed, enable the *Include an RSS Feed* option. Once you select this option, you are required to specify the *Feed Path* and, based on other options, select a *Feed Row Style*.  
+  
+![creating a page view](images/view_create_page.jpg "Creating a Page View")  
+  
+You can define the way you want the Views to be displayed. You can select any one of the options (Grid, HTML List, or Unformatted List) and the type of information regarding the blog to be displayed (teasers, full post, title, or full post) along with or without any links. To explain this better, let us try and display the blogs in a Grid format with teasers. This can be done by selecting a few options in the Page display settings section. Select *Grid* from the Display format dropdown list and *teasers* from the *of* field. This represents that our blogs are going to be displayed in a Grid format along with teasers. You can also specify if you want to display links that allows the users to comment on the blogs and also specify the number of items that you want to display in the page. Once the settings are defined, you can select *Save and edit*. This should take us to the UI page of the view along with the preview as shown.  
+  
+![page view settings](images/view_create_page_settings.jpg "Page View Settings")  
+  
+This is the screen to finalize our display settings. Here you can modify the display settings if required. All you have to do to modify the information is to just click on the hyperlinked content in the required sections and make your changes. Once your changes are made, you can then select *Save*. Your View is ready and you can view it by entering the URL (http://d8.edukay.com/blog-list) and this is how our Grid view appears.  
+  
+![homepage of page view](images/view_create_page_homepage.jpg "Homepage of Page View")  
+  
+Let us now move on the next section – Block Settings. Views help you to create listings of the data (blogs) on your site as blocks. These blocks can be placed in your website. Let us configure the settings for Block. Select the *Create a block* and it should display fields similar to this.  
+  
+![view create block](images/viiew_create_block.jpg "View Create Block")  
+  
+As with any other form creation, provide a name for the page block in the *Block title* field (e.g., Blocks). The next step would be to define the display format of the block. You can select one of the available display options (Grid, HTML List, Table or Unformatted list) from the *Display format* dropdown and the information that you want to display (teasers, full posts, titles, titles (linked), fields). Let us select Grid as our display option and select teasers as our display format. Once the display format is set, you can define the number (e.g., 5) of items to be displayed per block in the *Items per block* field. If you want to allow users to view more than one page of items, select the *Use a Pager* option.  
+  
+On defining the settings, select the Save and edit. This takes you to the editing interface of Views.  
+  
+![view create block settings](images/view_create_block_settings.jpg "View Create Block Settings")  
+  
+This is the UI interface of the Views. Here you can modify the information if required. Information related to Page view or Block view can be modified. All you have to do to modify the information is to just click on the hyperlinked content in the required sections and make your changes. Once your changes are made, you can then select *Save*. Your View is ready.  
+  
+Let us now place the block view in the website. In order to do this, go to Structure and select Block Layout. This takes us to the Block Layout page as shown.  
+  
+![block layout](images/block_layout.jpg "Block Layout")  
+  
+From the Lists (Views) section, select the view that you want to display on the homepage. This opens the following window as shown.
+  
+![block settings](images/block_settings.jpg "Block Settings")  
+  
+Now select the location (for e.g., sidebar) from the Region dropdown list and select *Save block*. Go back to the homepage to see the block that you have just created.  
+  
+![block homepage](images/block_homepage.jpg "Block Homepage")  
