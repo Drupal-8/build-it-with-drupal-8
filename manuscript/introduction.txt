@@ -1,0 +1,12 @@
+# Introduction
+Hey there, welcome to Build it with Drupal 8. This is a free Ebook that everyone is free to download and distribute. The contents of this book are open source and are compiled from our [GitHub repository](https://github.com/antoniojtorres/build-it-with-drupal-8). What that means for you is that you can report any inconsistencies or confusing parts of the book to us, as well as contribute any new material easily. Once it gets pulled into the repository, Leanpub will add it to the book.
+
+## Before going ahead
+It is important to understand the goals of this book in order to narrow the area of focus, because working with something like Drupal can lend itself to a great degree of abstraction, and each layer requires it's own amount of attention. Anywhere from a core developer and talking strict code framework, up to a site builder trying to figure out how to make a simple blog. So this book is geared for Module developers, it doesn't go into any technical aspects, from architectural decisions to actual code being discussed. This book is geared toward anyone interested in the Site Building aspect of Drupal. This entails using the facilities that Drupal provides both natively and through contributed modules. What this means is that all we need to start is a plain Drupal 8 website.
+
+### *"But I'm not really sure about any of this, is there an easy way for me to just check Drupal out?"*
+
+Sure! there's a fantastic service called [Simplytest.me](http://simplytest.me/project/drupal), it allows you to easily create a sandbox with a fresh install of Drupal 8 to do anything you please with. All you have to do is click Launch sandbox! Keep in mind that the sandbox expires after 30 minutes, after which it will be destroyed. But that's okay, you can always make a new one, and once you're ready, you can host your own. If any of this seems complicated right now, don't worry, that's exactly what this book is for!
+
+## About Us
+This book is compiled and released by your friends at Bside Studios. We're a small Drupal shop based out of sunny South Florida. When thinking of creating a manual that is comprehensive and easy to disseminate we settled on a trying out Leanpub, as it allows us to continually add new content collaboratively. It seems strange and cumbersome to try to sell it so we put it up on GitHub. We're more than eager to get contributors on board. Our dream is to continue to enrich and adapt this book throughout Drupal 8's lifecycle, allowing it to stay current, and always free.
